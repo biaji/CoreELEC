@@ -7,7 +7,7 @@ PKG_SHA256="6571635e1e79087be799723ce3bd480ca88d0162749c28171b0db7506314a66f"
 PKG_LICENSE="GPL-2.0+"
 PKG_SITE="http://nfs.sourceforge.net/"
 PKG_URL="${SOURCEFORGE_SRC}/nfs/nfs-utils/$PKG_VERSION/$PKG_NAME-$PKG_VERSION.tar.bz2"
-PKG_DEPENDS_HOST="toolchain"
+PKG_DEPENDS_HOST="toolchain libtirpc:host"
 PKG_DEPENDS_TARGET="toolchain nfs-utils:host systemd sqlite libtirpc rpcsvc-proto libevent libdevmapper"
 PKG_LONGDESC="The NFS Utilities package contains the userspace server and client tools necessary to use the kernel NFS abilities."
 
@@ -40,7 +40,6 @@ pre_configure_host() {
     --disable-uuid \
     --disable-ipv6 \
     --disable-caps \
-    --disable-tirpc \
     --without-systemd \
     --without-tcp-wrappers"
 }
